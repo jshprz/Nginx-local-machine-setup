@@ -213,8 +213,9 @@ DNS.2 = <domain-name>.dev
 /etc/nginx/sites-available/application.conf in this scenario
 
 =====================================================================================================================
+
 server {
-		listen 80;
+	listen 80;
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
 
