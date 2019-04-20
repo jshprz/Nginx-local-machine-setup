@@ -27,7 +27,7 @@
 - sudo chmod -R 775 application/
 
 # change nginx configuration by copy and pasting this code into nginx.conf file
-================================================================
+=====================================================================================================================
 user www-data;
 worker_processes auto;
 pid /run/nginx.pid;
@@ -113,16 +113,16 @@ http {
 #		proxy      on;
 #	}
 #}
-================================================================
+=====================================================================================================================
 - sudo nano /etc/nginx/nginx.conf
 
 # before configuring nginx virtual host make sure to register the server name in host 
 - sudo nano /etc/hosts
 
 make sure you write it like this the server name depends on how you name it
-===================================
+=====================================================================================================================
 127.0.0.1       app.dev
-===================================
+=====================================================================================================================
 
 # configure nginx virtual host
 - cd /etc/nginx/sites-available
@@ -130,7 +130,7 @@ make sure you write it like this the server name depends on how you name it
 
 # and copy this code and paste it in application.conf file
 
-===================================================
+=====================================================================================================================
 - server {
 		listen 80 default_server;
 		listen [::]:80 default_server;
@@ -153,7 +153,9 @@ make sure you write it like this the server name depends on how you name it
 # With php-fpm (or other unix sockets);
 		}
 }
-=====================================================
+
+=====================================================================================================================
+
 # create a symlink of sites available conf in sites enabled
 - sudo ln -s  /etc/nginx/sites-available/application.conf /etc/nginx/sites-enabled
 
@@ -171,7 +173,7 @@ make sure you write it like this the server name depends on how you name it
 
 create req.conf and copy the code below
 
-========================================================
+=====================================================================================================================
 [req]
 distinguished_name = req_distinguished_name
 x509_extensions = v3_req
@@ -190,7 +192,7 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1 = *.<domain-name>.dev
 DNS.2 = <domain-name>.dev
-=========================================================
+=====================================================================================================================
   
 # generate ssl certificate
 - sudo openssl genrsa -out {project-domain}.key 3072
@@ -200,7 +202,7 @@ DNS.2 = <domain-name>.dev
 
 /etc/nginx/sites-available/application.conf in this scenario
 
-==============================================================
+=====================================================================================================================
 server {
 		listen 80;
         listen 443 ssl http2;
@@ -230,7 +232,7 @@ server {
 		}
 }
 
-===================================================================
+=====================================================================================================================
 
 # import your ssl certificate 
 - sudo certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n "{cerficate name}" -i {cerficate name}.crt
