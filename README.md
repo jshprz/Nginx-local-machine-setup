@@ -141,6 +141,7 @@ make sure you write it like this the server name depends on how you name it
 
 - server {
 		listen 80 default_server;
+		
 		listen [::]:80 default_server;
  
 		root /var/www/myproj/public;
@@ -205,7 +206,9 @@ DNS.2 = <domain-name>.dev
 =====================================================================================================================
   
 # generate ssl certificate
+
 - sudo openssl genrsa -out {project-domain}.key 3072
+
 - sudo openssl req -new -x509 -key {project-domain}.key -sha256 -out {project-domain}.crt -days 1826 -config {path-to-conf}/req.conf -extensions 'v3_req'
 
 # setup your server inside vhost configuration
