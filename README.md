@@ -28,6 +28,7 @@
 
 # change nginx configuration by copy and pasting this code into nginx.conf file
 =====================================================================================================================
+
 user www-data;
 worker_processes auto;
 pid /run/nginx.pid;
