@@ -118,6 +118,7 @@ http {
 #	}
 #}
 =====================================================================================================================
+
 - sudo nano /etc/nginx/nginx.conf
 
 # before configuring nginx virtual host make sure to register the server name in host 
@@ -125,7 +126,9 @@ http {
 
 make sure you write it like this the server name depends on how you name it
 =====================================================================================================================
+
 127.0.0.1       app.dev
+
 =====================================================================================================================
 
 # configure nginx virtual host
@@ -135,6 +138,7 @@ make sure you write it like this the server name depends on how you name it
 # and copy this code and paste it in application.conf file
 
 =====================================================================================================================
+
 - server {
 		listen 80 default_server;
 		listen [::]:80 default_server;
@@ -178,6 +182,7 @@ make sure you write it like this the server name depends on how you name it
 create req.conf and copy the code below
 
 =====================================================================================================================
+
 [req]
 distinguished_name = req_distinguished_name
 x509_extensions = v3_req
@@ -196,6 +201,7 @@ subjectAltName = @alt_names
 [alt_names]
 DNS.1 = *.<domain-name>.dev
 DNS.2 = <domain-name>.dev
+
 =====================================================================================================================
   
 # generate ssl certificate
