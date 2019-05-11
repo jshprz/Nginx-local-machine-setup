@@ -202,6 +202,8 @@ DNS.2 = <domain-name>.dev
 
 # Generate ssl certificate.
 
+- cd go to the folder where you want the ssl and certificate and key to be located
+
 - sudo openssl genrsa -out {project-domain}.key 3072
 
 - sudo openssl req -new -x509 -key {project-domain}.key -sha256 -out {project-domain}.crt -days 1826 -config {path-to-conf}/req.conf -extensions 'v3_req'
@@ -245,6 +247,7 @@ server {
 
 # import your ssl certificate to enable it.
 
+- cd go to the folder where your certificate and key located
 - sudo certutil -d sql:$HOME/.pki/nssdb -A -t "P,," -n "{cerficate name}" -i {cerficate name}.crt
 
 # DONE ENJOY CODING :)
