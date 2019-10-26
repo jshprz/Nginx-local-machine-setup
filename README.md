@@ -9,7 +9,9 @@
 - sudo nginx -v
 
 # Install php and php libraries
-
+- sudo apt install software-properties-common
+- sudo add-apt-repository ppa:ondrej/php
+- sudo apt update
 - sudo apt-get install php7.2 php7.2-mysql php7.2-fpm php7.2-xml php7.2-gd php7.2-opcache php7.2-mbstring
 - sudo apt install zip unzip php7.2-zip
 
@@ -18,7 +20,7 @@
 
 # Install composer and move it into /usr/local/bin/composer.
 
-- sudo curl -sS https://getcomposer.org/installer | php
+- curl -sS https://getcomposer.org/installer | php
 - mv composer.phar /usr/local/bin/composer
 - cd /var/www
 
